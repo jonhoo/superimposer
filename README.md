@@ -63,6 +63,12 @@ after `--` in the argument list to `superimposer`. You'll probably want
 to read up on [hardware acceleration in ffmpeg], and maybe the [ffmpeg
 VAAPI encoding docs].
 
+## Examples
+
+Here are some examples of what the resulting video looks like:
+
+<iframe width="2551" height="1166" src="https://www.youtube.com/embed/DnT-LUQgc7s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
   [hardware acceleration in ffmpeg]: https://trac.ffmpeg.org/wiki/HWAccelIntro
   [ffmpeg VAAPI encoding docs]: https://trac.ffmpeg.org/wiki/Hardware/VAAPI#Encoding
   [`ffmpeg-normalizer`]: https://github.com/slhck/ffmpeg-normalize
