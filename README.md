@@ -67,7 +67,7 @@ VAAPI encoding docs].
 
 Here are some examples of what the resulting video looks like:
 
-<iframe width="2551" height="1166" src="https://www.youtube.com/embed/DnT-LUQgc7s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Considering Rust](https://img.youtube.com/vi/DnT-LUQgc7s/0.jpg)](https://www.youtube.com/watch?v=DnT-LUQgc7s)
 
   [hardware acceleration in ffmpeg]: https://trac.ffmpeg.org/wiki/HWAccelIntro
   [ffmpeg VAAPI encoding docs]: https://trac.ffmpeg.org/wiki/Hardware/VAAPI#Encoding
