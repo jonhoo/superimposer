@@ -1,0 +1,12 @@
+transitions.txt
+*.mov
+*.mkv
+*.mp4
+*.wav
+*.mp3
+*.m4a
+*.pdf
+slides/
+segments/
+superimposer.egg-info/
+dist/
