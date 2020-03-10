@@ -102,6 +102,7 @@ def main():
     i = 0
     since = 0
     show = None
+    l_trim = None
     for (time, slide) in transitions:
         if type(time) == type(end):
             s = time
@@ -112,6 +113,23 @@ def main():
                 s += int(parts.pop()) * 60
             if len(parts) != 0:
                 s += int(parts.pop()) * 60 * 60
+
+        # non-zero start time (maybe) implies we should trim the beginning
+        if l_trim is None:
+            l_trim = s
+            # note that _in theory_ we should adjust all the slide transition
+            # timestamps back by this amount, but in practice this isn't
+            # necessary since we only really care about the _differences_
+            # between them. the one exception to this is the very last
+            # timestamp, since it is one we artificially set to the end time of
+            # the video. if the video is trimmed at the beginning, the last
+            # slide should also end correspondingly sooner
+            transitions[-1] = (transitions[-1][0] - l_trim, transitions[-1][1])
+
+        if since >= s:
+            print("slide times do not monotonically increase (%s came after %s)" % (pretty_time_delta(s), pretty_time_delta(since)))
+            sys.exit(1)
+            return
 
         if s > end:
             if since >= end:
@@ -157,10 +175,11 @@ def main():
         copyfile("%s/all.mov" % segments.name, "all.mov")
 
     encoding_args = ["ffmpeg",
+        "-ss", "%d" % l_trim,
+        "-to", "%d" % end,
         "-i", args.video.name,
         "-i", "all.mov" if args.dry_run else "%s/all.mov" % segments.name,
         "-filter_complex", "; ".join(filter_complex),
-        "-t", "%d" % end,
         "-pix_fmt", "yuv420p",
         "-r", "%s" % fps,
         *args.remaining,
