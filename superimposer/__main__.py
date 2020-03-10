@@ -127,7 +127,7 @@ def main():
             # loop that png frame for the currently shown frame until this time
             print(" -> loop slide %d for %s" % (i - 1, pretty_time_delta(s - since)))
             subprocess.run([
-                "ffmpeg", "-y", "-loglevel", "error",
+                "ffmpeg", "-loglevel", "error",
                 "-f", "image2", "-loop", "1", "-framerate", "1", "-pattern_type", "none", "-i", "%s/%d.png" % (segments.name, i - 1),
                 "-r", "1", "-t", "%d" % (s - since), "-vcodec", "png", "-an",
                 "%s/%d.mov" % (segments.name, i - 1)
@@ -156,7 +156,7 @@ def main():
     if args.dry_run:
         copyfile("%s/all.mov" % segments.name, "all.mov")
 
-    encoding_args = ["ffmpeg", "-y",
+    encoding_args = ["ffmpeg",
         "-i", args.video.name,
         "-i", "all.mov" if args.dry_run else "%s/all.mov" % segments.name,
         "-filter_complex", "; ".join(filter_complex),
