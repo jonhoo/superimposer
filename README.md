@@ -67,8 +67,8 @@ VAAPI encoding docs].
 
 Here are some examples of what the resulting video looks like:
 
-[![Demystifying unsafe code](https://img.youtube.com/vi/QAz-maaH0KM/0.jpg)](https://www.youtube.com/watch?v=QAz-maaH0KM)
-[![Considering Rust](https://img.youtube.com/vi/DnT-LUQgc7s/0.jpg)](https://www.youtube.com/watch?v=DnT-LUQgc7s)
+[![Demystifying unsafe code](https://img.youtube.com/vi/QAz-maaH0KM/sddefault.jpg)](https://www.youtube.com/watch?v=QAz-maaH0KM)
+[![Considering Rust](https://img.youtube.com/vi/DnT-LUQgc7s/sddefault.jpg)](https://www.youtube.com/watch?v=DnT-LUQgc7s)
 
   [hardware acceleration in ffmpeg]: https://trac.ffmpeg.org/wiki/HWAccelIntro
   [ffmpeg VAAPI encoding docs]: https://trac.ffmpeg.org/wiki/Hardware/VAAPI#Encoding
