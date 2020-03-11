@@ -50,7 +50,7 @@ you may want to consider also giving:
 
 ## Normalizing audio
 
-If your audio is sad, try [`fmpeg-normalizer`] with something like:
+If your audio is sad, try [`ffmpeg-normalizer`] with something like:
 
 ```console
 $ ffmpeg-normalize superimposed.mp4 -o superimposed-normalized.mp4 -c:a aac
