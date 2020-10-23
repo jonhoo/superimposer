@@ -40,7 +40,7 @@ output. Run `superimposer --help` to see them. If you're using H.264,
 you may want to consider also giving:
 
 ```console
--- --tune stillimage
+-- -tune stillimage
 ```
 
 ## Requirements
