@@ -43,6 +43,14 @@ you may want to consider also giving:
 -- -tune stillimage
 ```
 
+If you are significantly resizing the camera video, you may want to
+[change the scaling algorithm](https://superuser.com/a/375726/77846)
+with:
+
+```console
+-- -sws_flags lanczos
+```
+
 ## Requirements
 
  - `ffmpeg` and `ffprobe` (usually installed with [`ffmpeg`](https://ffmpeg.org/))
