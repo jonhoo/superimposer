@@ -190,7 +190,7 @@ def main():
     print("==> superimposing video onto slides")
     if args.dry_run:
         print(" -> would run:")
-        print(encoding_args)
+        print(' '.join(["'" + a + "'" for a in encoding_args]))
         print(" -> but skipping since this is a dry run.")
     else:
         subprocess.run(encoding_args)
