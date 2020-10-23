@@ -126,8 +126,10 @@ def main():
             # slide should also end correspondingly sooner
             transitions[-1] = (transitions[-1][0] - l_trim, transitions[-1][1])
 
-        if since >= s:
-            print("slide times do not monotonically increase (%s came after %s)" % (pretty_time_delta(s), pretty_time_delta(since)))
+        if show is None:
+            pass
+        elif since >= s:
+            print("slide times do not monotonically increase (%s came after %s on slide %d)" % (pretty_time_delta(s), pretty_time_delta(since), slide))
             sys.exit(1)
             return
 
