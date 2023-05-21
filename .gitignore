@@ -10,3 +10,4 @@ slides/
 segments/
 superimposer.egg-info/
 dist/
+build/
