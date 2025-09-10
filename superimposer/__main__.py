@@ -5,8 +5,6 @@ from shutil import copyfile
 
 import argparse
 import math
-import os
-import os.path
 import subprocess
 import sys
 import tempfile
@@ -179,7 +177,7 @@ def main():
     show = None
     l_trim = None
     for time, slide in transitions:
-        if type(time) == type(end):
+        if type(time) is type(end):
             s = time
         else:
             parts = time.split(":")
