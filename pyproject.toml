@@ -1,0 +1,42 @@
+[project]
+name = "superimposer"
+version = "0.1.2"
+description="Superimpose presentation records onto PDF slides"
+readme = "README.md"
+authors = [
+  {name = "Jon Gjengset", email = "jon@thesquareplanet.com"},
+]
+maintainers = [
+  {name = "Jon Gjengset", email = "jon@thesquareplanet.com"},
+]
+license = "MIT"
+keywords = ["presentation", "slides", "video", "ffmpeg"]
+classifiers=[
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "Topic :: Multimedia :: Graphics :: Presentation",
+    "Topic :: Multimedia :: Video",
+    "Natural Language :: English",
+    "License :: OSI Approved :: MIT License",
+    "Environment :: Console",
+    "Operating System :: POSIX",
+    "Programming Language :: Python :: 3",
+]
+
+requires-python = ">=3.5"
+dependencies = [
+  "PyPDF2>=1.26.0,<2"
+]
+
+[project.urls]
+homepage = "https://github.com/jonhoo/superimposer"
+issues = "https://github.com/jonhoo/superimposer/issues"
+funding = "https://github.com/sponsors/jonhoo/"
+
+[project.scripts]
+superimposer = "superimposer:main"
+
+[build-system]
+requires = ["uv_build>=0.8.15,<0.9.0"]
+build-backend = "uv_build"

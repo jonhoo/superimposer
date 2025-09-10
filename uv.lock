@@ -1,0 +1,23 @@
+version = 1
+revision = 3
+requires-python = ">=3.5"
+
+[[package]]
+name = "pypdf2"
+version = "1.28.6"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/0b/79/abdc2edda52463490c860232149242b693cbf6179d9863b0c7862cf9fd73/PyPDF2-1.28.6.tar.gz", hash = "sha256:c0840835d18357b077da05bdad1423f5e29419f318135b6a6542895930dc4905", size = 2848080, upload-time = "2022-09-08T11:15:30.238Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/ab/de/d119dd719304154e83eed74b48aec9b3db6ce1d5fd49ab7d23c07ca1f748/PyPDF2-1.28.6-py3-none-any.whl", hash = "sha256:d7118f0187153257b1f906dcfcd8236608f4987b6a9999b7c5ad49114706a1ad", size = 87076, upload-time = "2022-09-08T11:15:22.723Z" },
+]
+
+[[package]]
+name = "superimposer"
+version = "0.1.2"
+source = { editable = "." }
+dependencies = [
+    { name = "pypdf2" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "pypdf2", specifier = ">=1.26.0,<2" }]
