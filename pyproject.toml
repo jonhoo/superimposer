@@ -1,6 +1,6 @@
 [project]
 name = "superimposer"
-version = "0.1.2"
+version = "0.1.3"
 description="Superimpose presentation records onto PDF slides"
 readme = "README.md"
 authors = [
