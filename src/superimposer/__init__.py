@@ -1,6 +1,6 @@
 #!/bin/env python
 
-from PyPDF2 import PdfFileWriter, PdfFileReader
+from pypdf import PdfReader, PdfWriter
 from shutil import copyfile
 
 import argparse
@@ -70,18 +70,18 @@ def main():
             transitions.append((fields[0], int(fields[1])))
 
     # split the pdf
-    inputpdf = PdfFileReader(args.slides)
+    inputpdf = PdfReader(args.slides)
     size = None
-    for i in range(inputpdf.numPages):
-        page = inputpdf.getPage(i)
+    for i in range(len(inputpdf.pages)):
+        page = inputpdf.pages[i]
         if size is None:
-            size = page.mediaBox
-        elif size != page.mediaBox:
+            size = page.mediabox
+        elif size != page.mediabox:
             print("pdf page sizes differ.")
             sys.exit(1)
             return
-        output = PdfFileWriter()
-        output.addPage(page)
+        output = PdfWriter()
+        output.add_page(page)
         with open("%s/%d.pdf" % (slides.name, i + 1), "wb") as outputStream:
             output.write(outputStream)
 
@@ -140,10 +140,8 @@ def main():
     height = args.height
     # search for next pdf scale that produces divisible-by-two width and height
     while True:
-        pdf_scale = int(
-            72.0 * args.height / float(size.upperLeft[1] - size.lowerLeft[1])
-        )
-        width = float(size.upperRight[0] - size.upperLeft[0]) * pdf_scale / 72.0
+        pdf_scale = int(72.0 * args.height / float(size.height))
+        width = float(size.width) * pdf_scale / 72.0
         # print(width, height, pdf_scale)
         if math.ceil(width) % 2 == 0:
             break
@@ -151,9 +149,9 @@ def main():
 
     print(
         "pdf page size is",
-        size.lowerRight[0],
+        size.width,
         "by",
-        size.upperRight[1],
+        size.height,
         "and will be scaled with DPI",
         pdf_scale,
     )

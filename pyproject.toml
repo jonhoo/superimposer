@@ -24,9 +24,9 @@ classifiers=[
     "Programming Language :: Python :: 3",
 ]
 
-requires-python = ">=3.5"
+requires-python = ">=3.9"
 dependencies = [
-  "PyPDF2>=1.26.0,<2"
+  "pypdf>=6.0.0",
 ]
 
 [project.urls]
