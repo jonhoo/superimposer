@@ -61,14 +61,13 @@ def main():
 
     # get all the transitions
     transitions = []
-    with open("transitions.txt", "r") as t:
-        for line in t.readlines():
-            line = line.strip()
-            if line.startswith("#"):
-                continue
-            fields = line.split()
-            if len(fields) >= 2:
-                transitions.append((fields[0], int(fields[1])))
+    for line in args.t.readlines():
+        line = line.strip()
+        if line.startswith("#"):
+            continue
+        fields = line.split()
+        if len(fields) >= 2:
+            transitions.append((fields[0], int(fields[1])))
 
     # split the pdf
     inputpdf = PdfFileReader(args.slides)
