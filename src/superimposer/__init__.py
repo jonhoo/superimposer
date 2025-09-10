@@ -74,10 +74,13 @@ def main():
     size = None
     for i in range(len(inputpdf.pages)):
         page = inputpdf.pages[i]
+        psz = [round(page.cropbox.width), round(page.cropbox.height)]
         if size is None:
-            size = page.mediabox
-        elif size != page.mediabox:
-            print("pdf page sizes differ.")
+            size = page.cropbox
+        elif round(size.width) != round(page.cropbox.width) or round(
+            size.height
+        ) != round(page.cropbox.height):
+            print("pdf page sizes differ: %s != %s." % (size, psz))
             sys.exit(1)
             return
         output = PdfWriter()
@@ -140,8 +143,8 @@ def main():
     height = args.height
     # search for next pdf scale that produces divisible-by-two width and height
     while True:
-        pdf_scale = int(72.0 * args.height / float(size.height))
-        width = float(size.width) * pdf_scale / 72.0
+        pdf_scale = int(72.0 * args.height / float(round(size.height)))
+        width = float(round(size.width)) * pdf_scale / 72.0
         # print(width, height, pdf_scale)
         if math.ceil(width) % 2 == 0:
             break
@@ -149,9 +152,9 @@ def main():
 
     print(
         "pdf page size is",
-        size.width,
+        round(size.width),
         "by",
-        size.height,
+        round(size.height),
         "and will be scaled with DPI",
         pdf_scale,
     )
